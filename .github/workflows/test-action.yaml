@@ -1,7 +1,7 @@
 name: Testing GH Actions
 on: [push]
 jobs:
-  Output-test-string:
+  list-files-in-repo:
     runs-on: ubuntu-latest
     steps:
       - run: echo "this is a message from GH actions job"
