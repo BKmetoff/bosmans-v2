@@ -1,0 +1,5 @@
+#/bin/bash
+
+echo "message from script"
+aws --version
+find ./src -type f | grep ".js"

@@ -1,7 +1,7 @@
-name: AWS CLI
+name: Push content to AWS s3
 on: [push]
 jobs:
-  list-files-in-repo:
+  push-content-to-aws-s3:
     runs-on: ubuntu-latest
     steps:
 
@@ -9,7 +9,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: List repo files
-        run: ls ${{ github.workspace }}
+        run: ls -R ${{ github.workspace }}
 
       - name: install-aws-cli
         uses: unfor19/install-aws-cli-action@v1.0.2
@@ -18,5 +18,5 @@ jobs:
           verbose: false
           arch: amd64
 
-      - name: print aws cli version
-        run: aws --version
+      - name: run custom script
+        run: ./bin/upload-to-s3
