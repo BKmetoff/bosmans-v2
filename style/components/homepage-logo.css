@@ -1,0 +1,8 @@
+@import url('../constants.css');
+
+.main-logo {
+	position: fixed;
+	max-width: 300px;
+	margin-left: var(--spacing-l);
+	margin-top: var(--spacing-l);
+}

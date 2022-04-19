@@ -1,0 +1,21 @@
+@import url('homepage-logo.css');
+
+.container {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+
+	max-width: 1024px;
+	aspect-ratio: 16/10;
+
+	box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+		rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
+
+	background: url('../../src/assets/pics/background/HomeDesktop.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: right;
+
+	overflow-x: hidden;
+
+	position: relative;
+}

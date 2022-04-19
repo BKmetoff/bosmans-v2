@@ -1,0 +1,44 @@
+@import url('../constants.css');
+
+.social-media-container {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	align-items: center;
+	gap: var(--spacing-m);
+	margin: var(--spacing-s) 0 var(--spacing-s) 0;
+}
+
+.social-media-logo {
+	grid-column: 1/2;
+	grid-row: 1;
+	justify-self: right;
+	width: 55px;
+	aspect-ratio: 1;
+}
+
+.social-media-profile {
+	grid-column: 2/2;
+	grid-row: 1;
+	color: var(--clr-light);
+	font-size: var(--fs-l);
+	text-decoration: none;
+	justify-self: left;
+	position: relative;
+}
+
+.social-media-profile:hover::before,
+.social-media-profile:focus::before {
+	content: '';
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+
+	top: 0;
+	height: 130%;
+	width: 100%;
+
+	background: var(--clr-accent);
+	transform: perspective(4em) scale(1, 0.35);
+	filter: blur(1.5em);
+	opacity: 0.9;
+}

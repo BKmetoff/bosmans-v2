@@ -1,0 +1,34 @@
+@import url('../constants.css');
+
+h1,
+h2 {
+	margin-bottom: var(--spacing-l);
+	color: var(--clr-light);
+}
+
+h2 {
+	font-size: var(--fs-l);
+	position: relative;
+}
+
+h2::after {
+	position: absolute;
+	content: '';
+	height: 1px;
+	width: 40%;
+	background: var(--clr-accent);
+	top: 125%;
+	left: 0;
+	border-radius: var(--br-s);
+}
+
+h3 {
+	font-size: var(--fs-m);
+	color: var(--clr-light);
+}
+
+p {
+	line-height: 28px;
+	color: var(--clr-light);
+	font-size: var(--fs-m);
+}

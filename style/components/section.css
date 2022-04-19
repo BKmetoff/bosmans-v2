@@ -1,0 +1,30 @@
+@import url('constants.css');
+@import url('text.css');
+
+section {
+	min-height: 100%;
+}
+
+section:not(:first-child) {
+	text-align: justify;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	background: var(--clr-transparent-darker);
+}
+
+.section-content {
+	margin-left: var(--spacing-xl);
+	margin-right: var(--spacing-xl);
+}
+
+@supports (backdrop-filter: blur(8px)) {
+	section:not(:first-child) {
+		background: var(--clr-transparent-dark);
+		backdrop-filter: blur(8px);
+	}
+}
+
+.section-title {
+	text-transform: uppercase;
+}

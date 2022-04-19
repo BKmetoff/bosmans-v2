@@ -1,0 +1,35 @@
+:root {
+	--clr-primary: hsl(213, 32%, 50%);
+	--clr-accent: hsl(37, 95%, 76%);
+
+	--clr-light: hsl(0, 0%, 90%);
+	--clr-dark: hsl(203, 7%, 20%);
+
+	--clr-bg-from: hsl(40, 70%, 90%);
+	--clr-bg-to: hsl(40, 75%, 80%);
+
+	--clr-transparent-100: hsla(0, 0%, 100%, 0);
+	--clr-transparent-dark: hsl(283, 5%, 15%, 0.8);
+	--clr-transparent-darker: hsl(283, 5%, 0%, 0.9);
+
+	--br-s: 3px;
+	--br-m: 5px;
+
+	--transition-short: 200ms;
+	--transition-medium: 400ms;
+	--transition-long: 500ms;
+
+	--fs-xs: 14px;
+	--fs-s: 18px;
+	--fs-m: 20px;
+	--fs-l: 22px;
+	--fs-xl: 30px;
+
+	--spacing-xs: 10px;
+	--spacing-s: 15px;
+	--spacing-m: 25px;
+	--spacing-l: 30px;
+	--spacing-xl: 50px;
+
+	--font-family: 'Dosis-Regular', sans-serif;
+}

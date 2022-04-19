@@ -1,0 +1,21 @@
+@import url('constants.css');
+
+.piece-details {
+	text-align: end;
+	margin-bottom: var(--spacing-s);
+}
+
+.piece-type {
+	font-style: italic;
+	font-size: var(--fs-s);
+}
+
+.composer-container {
+	display: flex;
+	flex-direction: column;
+	margin-top: var(--spacing-m);
+}
+
+.composer-name::after {
+	background: var(--clr-primary);
+}

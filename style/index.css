@@ -1,0 +1,58 @@
+@import url('constants.css');
+
+@import url('./components/container.css');
+@import url('./components/content.css');
+@import url('./components/section.css');
+
+@import url('./components/navigation/nav.css');
+@import url('./components/navigation/nav-toggle.css');
+@import url('./components/navigation/nav-link.css');
+
+@import url('./components/section-repertoire.css');
+@import url('./components/section-social.css');
+@import url('./components/section-contact.css');
+@import url('./components/section-about.css');
+@import url('./components/bio-pane.css');
+
+@font-face {
+	font-family: 'Dosis-Regular';
+	src: url('../src/fonts/Dosis/Dosis-Regular.ttf') format('truetype');
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	font-family: 'Dosis-Regular', sans-serif;
+	letter-spacing: 1px;
+	font-size: var(--fs-m);
+}
+
+.main {
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: linear-gradient(
+		to bottom right,
+		var(--clr-bg-from),
+		var(--clr-bg-to)
+	);
+}
+
+li {
+	list-style: none;
+}
+
+button {
+	font-family: 'Dosis-Regular';
+}

@@ -1,0 +1,69 @@
+@import url('constants.css');
+
+.nav {
+	display: flex;
+	flex-direction: column;
+
+	justify-content: space-between;
+	align-items: center;
+
+	grid-column: 3 / 3;
+	grid-row: 1;
+
+	transform: translateX(100%);
+	transition: transform var(--transition-long);
+
+	box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+		rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+
+	background: var(--clr-transparent-darker);
+}
+
+@supports (backdrop-filter: blur(8px)) {
+	.nav {
+		background: var(--clr-transparent-dark);
+		backdrop-filter: blur(8px);
+	}
+}
+
+.nav[data-visible='true'] {
+	transform: translate(0%);
+}
+
+.nav ul {
+	width: 100%;
+}
+
+.nav-footer {
+	font-size: var(--fs-xs);
+	margin-bottom: var(--spacing-s);
+	color: var(--clr-light);
+}
+
+.nav-logo {
+	margin-top: var(--spacing-xl);
+	width: 100px;
+	aspect-ratio: 1;
+}
+
+@media (max-width: 768px) {
+	.nav {
+		position: fixed;
+		inset: 0;
+	}
+}
+
+/* .nav-links {
+	position: relative;
+} */
+
+.scroll-background {
+	/* position: fixed; */
+	/* text-align: center; */
+	padding: 2rem;
+	background: var(--clr-accent);
+	width: 40%;
+	/* transform: perspective(4em) scale(1, 0.35); */
+	/* filter: blur(1.5em); */
+	opacity: 0.9;
+}

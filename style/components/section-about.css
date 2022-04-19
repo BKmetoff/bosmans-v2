@@ -1,0 +1,59 @@
+@import url('../constants.css');
+
+.about > .section-content {
+	display: grid;
+	grid-template-columns: (3, 1fr);
+	grid-template-areas: 'a b c';
+}
+
+.open-bio-pane {
+	border: none;
+	background: var(--clr-transparent);
+	margin: var(--spacing-xs);
+	cursor: pointer;
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: center;
+	width: 175px;
+	padding-top: var(--spacing-l);
+	padding-bottom: var(--spacing-m);
+	transition: all var(--transition-short);
+}
+
+.open-bio-pane:hover,
+.open-bio-pane:focus {
+	position: relative;
+	box-shadow: var(--clr-transparent-dark) 0px 5px 15px;
+	background: var(--clr-transparent-dark);
+}
+
+.open-bio-pane:hover::before,
+.open-bio-pane:focus::before {
+	content: '';
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+
+	left: 0;
+	right: 0;
+	bottom: 3%;
+	height: 30%;
+	width: 65%;
+
+	background: var(--clr-accent);
+	transform: perspective(4em) scale(1, 0.35);
+	filter: blur(1.5em);
+	opacity: 0.5;
+}
+
+.bio-image-sm {
+	border-radius: 50%;
+	width: 100px;
+	aspect-ratio: 1;
+}
+
+.bio-name {
+	color: var(--clr-light);
+	font-size: var(--fs-m);
+	margin-top: var(--spacing-l);
+}

@@ -1,0 +1,120 @@
+@import url('../constants.css');
+
+.bio-pane {
+	max-width: 1024px;
+	aspect-ratio: 16/10;
+
+	top: 0;
+	width: 100%;
+	height: 100%;
+
+	transform: translateX(100%);
+	transition: transform var(--transition-long);
+
+	position: absolute;
+	background: var(--clr-transparent-darker);
+
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(1, 1fr);
+
+	overflow-y: scroll;
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+
+.bio-pane::-webkit-scrollbar {
+	display: none;
+}
+
+.bio-pane[data-visible='true'] {
+	transform: translate(0%);
+}
+
+@supports (backdrop-filter: blur(8px)) {
+	.bio-pane {
+		background: var(--clr-transparent-dark);
+		backdrop-filter: blur(8px);
+	}
+}
+
+.pane-bio-container {
+	grid-column-start: 1;
+	grid-column-end: 3;
+
+	margin: var(--spacing-l);
+}
+
+.close-bio-pane {
+	background-color: var(--clr-transparent);
+	color: var(--clr-light);
+	text-transform: uppercase;
+	font-size: var(--fs-l);
+	border: none;
+	cursor: pointer;
+	margin-bottom: var(--spacing-s);
+}
+
+.pane-person-name {
+	text-align: right;
+}
+
+.pane-person-name::after {
+	right: 0px;
+	left: unset;
+}
+
+.pane-bio {
+	text-align: justify;
+	font-size: var(--fs-s);
+}
+
+.pane-bio-image-container {
+	grid-column: 3/3;
+	position: relative;
+	overflow: hidden;
+}
+
+.pane-bio-image-lg {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 100%;
+}
+
+.pane-bio-anchor-container {
+	margin-top: var(--spacing-l);
+	margin-left: auto;
+	text-align: right;
+	position: relative;
+	color: var(--clr-primary);
+	width: fit-content;
+}
+
+.pane-bio-anchor-container:hover,
+.pane-bio-anchor-container:focus {
+	color: var(--clr-light);
+}
+
+.pane-bio-anchor-container > a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.pane-bio-anchor-container:hover::before,
+.pane-bio-anchor-container:focus::before {
+	content: '';
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+
+	top: 0;
+	height: 100%;
+	width: 100%;
+
+	background: var(--clr-accent);
+	transform: perspective(4em) scale(1, 0.35);
+	filter: blur(1.5em);
+	opacity: 0.9;
+}
