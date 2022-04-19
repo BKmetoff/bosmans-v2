@@ -1,12 +1,22 @@
-name: Testing GH Actions
+name: AWS CLI
 on: [push]
 jobs:
   list-files-in-repo:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "this is a message from GH actions job"
-      - run: echo "event name - ${{github.event_name}}"
+
       - name: Check out repo
         uses: actions/checkout@v3
+
       - name: List repo files
         run: ls ${{ github.workspace }}
+
+      - name: install-aws-cli
+        uses: unfor19/install-aws-cli-action@v1.0.2
+        with:
+          version: 2
+          verbose: false
+          arch: amd64
+
+      - name: print aws cli version
+        run: aws --version
