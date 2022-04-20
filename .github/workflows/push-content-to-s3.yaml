@@ -22,4 +22,5 @@ jobs:
       - name: Copy files using script
         env:
           BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
+          WORKSPACE: ${{ GITHUB_WORKSPACE }}
         run: ./bin/upload
