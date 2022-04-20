@@ -1,16 +1,14 @@
 #/bin/bash
 
-cd /home/runner/work/bosmans-v2/bosmans-v2 && \
+cd ${{ GITHUB_WORKSPACE }} && \
   pwd && \
-  ls -l \
-  echo $PATH
-  # aws s3 cp ./ s3://$BUCKET_NAME \
-  #   --recursive \
-  #   --exclude "*" \
-  #   --include "*.css" \
-  #   --include "*.html" \
-  #   --include "*.jpeg" \
-  #   --include "*.jpg" \
-  #   --include "*.js" \
-  #   --include "*.svg" \
-  #   --include "*.ttf"
+  aws s3 cp ./ s3://$BUCKET_NAME \
+      --recursive \
+      --exclude "*" \
+      --include "*.css" \
+      --include "*.html" \
+      --include "*.jpeg" \
+      --include "*.jpg" \
+      --include "*.js" \
+      --include "*.svg" \
+      --include "*.ttf"
