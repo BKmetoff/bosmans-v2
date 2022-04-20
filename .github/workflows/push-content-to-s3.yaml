@@ -20,4 +20,6 @@ jobs:
           aws-region: eu-west-1
 
       - name: Copy files using script
+        env:
+          BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
         run: ./bin/upload
