@@ -16,11 +16,15 @@ jobs:
       - name: AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::936892409162:role/github-actions-bkmetoff-bosmans-v2
+          role-to-assume: arn:aws:iam::936892409162:role/github-actions-BKmetoff-bosmans-v2
           aws-region: eu-west-1
 
       - name: Copy files using script
+        env:
+          BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
+<<<<<<< HEAD
+          WORKSPACE: ${{ GITHUB_WORKSPACE }}
+=======
+          WORKSPACE: ${{ github.workspace }}
+>>>>>>> a5de204 (updates upload scrpt #7)
         run: ./bin/upload
-        with:
-          role-to-assume: arn:aws:iam::936892409162:role/github-actions-bkmetoff-bosmans-v2
-          aws-region: eu-west-1
