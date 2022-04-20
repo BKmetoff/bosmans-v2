@@ -1,8 +1,14 @@
-name: Push content to AWS s3
-on: [push]
+# push repo content when PRs are closed and merged
+
+name: Push to AWS s3 production
+on:
+  pull_request_target:
+    types:
+      - closed
 
 jobs:
-  push-content-to-aws-s3:
+  if_merged:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     permissions:
@@ -16,11 +22,11 @@ jobs:
       - name: AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::936892409162:role/github-actions-BKmetoff-bosmans-v2
+          role-to-assume: arn:aws:iam::936892409162:role/gh-actions-bosmans-and-beyond
           aws-region: eu-west-1
 
       - name: Copy files using script
         env:
-          BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
+          BUCKET_PRODUCTION: ${{ secrets.BUCKET_PRODUCTION }}
           WORKSPACE: ${{ github.workspace }}
-        run: ./bin/upload
+        run: ./bin/upload production

@@ -1,20 +1,39 @@
 #/bin/bash
 
 echo "================================="
-echo "starting upload"
-cd $WORKSPACE && \
-  pwd && \
-  aws s3 cp ./ s3://$BUCKET_NAME \
-      --recursive \
-      --exclude "*" \
-      --include "*.css" \
-      --include "*.html" \
-      --include "*.jpeg" \
-      --include "*.jpg" \
-      --include "*.js" \
-      --include "*.png" \
-      --include "*.svg" \
-      --include "*.ttf" \
 
+if [  "$1" == "production" ];then
+  echo "uploading to production..."
+  echo ""
+  cd $WORKSPACE && \
+    aws s3 cp ./ s3://$BUCKET_PRODUCTION \
+        --recursive \
+        --exclude "*" \
+        --include "*.css" \
+        --include "*.html" \
+        --include "*.jpeg" \
+        --include "*.jpg" \
+        --include "*.js" \
+        --include "*.png" \
+        --include "*.svg" \
+        --include "*.ttf"
+else
+  echo ""
+  echo "uploading to staging..."
+  cd $WORKSPACE && \
+    aws s3 cp ./ s3://$BUCKET_STAGING \
+        --recursive \
+        --exclude "*" \
+        --include "*.css" \
+        --include "*.html" \
+        --include "*.jpeg" \
+        --include "*.jpg" \
+        --include "*.js" \
+        --include "*.png" \
+        --include "*.svg" \
+        --include "*.ttf"
+fi;
+
+echo ""
 echo "upload complete"
 echo "================================="

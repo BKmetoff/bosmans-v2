@@ -1,0 +1,26 @@
+name: Push to AWS s3 staging
+on: [push]
+
+jobs:
+  push-content-to-aws-s3:
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v3
+
+      - name: AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: arn:aws:iam::936892409162:role/gh-actions-bosmans-and-beyond-staging
+          aws-region: eu-west-1
+
+      - name: Copy files using script
+        env:
+          BUCKET_STAGING: ${{ secrets.BUCKET_STAGING }}
+          WORKSPACE: ${{ github.workspace }}
+        run: ./bin/upload
