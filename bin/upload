@@ -1,14 +1,13 @@
 #/bin/bash
 
-echo "message from script"
-aws --version
-aws s3 cp ../ s3://$BUCKET_NAME \
-  --recursive \
-  --exclude "*" \
-  --include "*.css" \
-  --include "*.html" \
-  --include "*.jpeg" \
-  --include "*.jpg" \
-  --include "*.js" \
-  --include "*.svg" \
-  --include "*.ttf"
+cd ../ && \
+  aws s3 cp ./ s3://$BUCKET_NAME \
+    --recursive \
+    --exclude "*" \
+    --include "*.css" \
+    --include "*.html" \
+    --include "*.jpeg" \
+    --include "*.jpg" \
+    --include "*.js" \
+    --include "*.svg" \
+    --include "*.ttf"
