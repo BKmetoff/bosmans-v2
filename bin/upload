@@ -18,8 +18,8 @@ if [  "$1" == "production" ];then
         --include "*.svg" \
         --include "*.ttf"
 else
-  echo ""
   echo "uploading to staging..."
+  echo ""
   cd $WORKSPACE && \
     aws s3 cp ./ s3://$BUCKET_STAGING \
         --recursive \
