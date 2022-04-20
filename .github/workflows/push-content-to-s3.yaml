@@ -22,5 +22,9 @@ jobs:
       - name: Copy files using script
         env:
           BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
+<<<<<<< HEAD
           WORKSPACE: ${{ GITHUB_WORKSPACE }}
+=======
+          WORKSPACE: ${{ github.workspace }}
+>>>>>>> a5de204 (updates upload scrpt #7)
         run: ./bin/upload
