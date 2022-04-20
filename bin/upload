@@ -1,6 +1,6 @@
 #/bin/bash
 
-cd ./bosmans-v2 && \
+cd /home/runner/work/bosmans-v2 && \
   pwd && \
   ls -l
   # aws s3 cp ./ s3://$BUCKET_NAME \
