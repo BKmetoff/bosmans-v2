@@ -2,12 +2,14 @@
 
 if [[ -n "${BUCKET_PRODUCTION}" ]]; then
   BUCKET=$BUCKET_PRODUCTION
+  ENV=production
 else
   BUCKET=$BUCKET_STAGING
+  ENV=staging
 fi
 
 echo "================================="
-echo "uploading to $BUCKET"
+echo ">>>>>> uploading to $ENV <<<<<<<<"
 echo "================================="
 echo ""
 
@@ -25,5 +27,5 @@ aws s3 cp ./ s3://$BUCKET \
 
 echo ""
 echo "================================="
-echo "upload complete"
+echo ">>>>>>> upload complete <<<<<<<<<"
 echo "================================="
