@@ -1,27 +1,19 @@
 #/bin/bash
 
-echo "================================="
-
-if [  "$1" == "production" ];then
-  echo "uploading to production..."
-  echo ""
-  cd $WORKSPACE && \
-    aws s3 cp ./ s3://$BUCKET_PRODUCTION \
-        --recursive \
-        --exclude "*" \
-        --include "*.css" \
-        --include "*.html" \
-        --include "*.jpeg" \
-        --include "*.jpg" \
-        --include "*.js" \
-        --include "*.png" \
-        --include "*.svg" \
-        --include "*.ttf"
+if [[ -n "${BUCKET_PRODUCTION}" ]]; then
+  BUCKET=$BUCKET_PRODUCTION
+  ENV=production
 else
-  echo "uploading to staging..."
-  echo ""
-  cd $WORKSPACE && \
-    aws s3 cp ./ s3://$BUCKET_STAGING \
+  BUCKET=$BUCKET_STAGING
+  ENV=staging
+fi
+
+echo "================================="
+echo ">>>>>> uploading to $ENV <<<<<<<<"
+echo "================================="
+echo ""
+
+aws s3 cp ./ s3://$BUCKET \
         --recursive \
         --exclude "*" \
         --include "*.css" \
@@ -32,8 +24,8 @@ else
         --include "*.png" \
         --include "*.svg" \
         --include "*.ttf"
-fi;
 
 echo ""
-echo "upload complete"
+echo "================================="
+echo ">>>>>>> upload complete <<<<<<<<<"
 echo "================================="
