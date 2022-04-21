@@ -9,7 +9,7 @@ else
 fi
 
 echo "================================="
-echo ">>>>>> uploading to $ENV <<<<<<<<"
+echo ">>>> uploading to $ENV <<<<"
 echo "================================="
 echo ""
 
