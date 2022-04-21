@@ -31,4 +31,4 @@ jobs:
         env:
           BUCKET_PRODUCTION: ${{ secrets.BUCKET_PRODUCTION }}
           WORKSPACE: ${{ github.workspace }}
-        run: ./bin/upload production
+        run: ./bin/upload
