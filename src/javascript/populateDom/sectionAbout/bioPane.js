@@ -1,4 +1,5 @@
-import { MAP_NAMES_TO_BIO, NAMES } from '../../../assets/copy/About/People.js'
+import { MAP_NAMES_TO_BIO, NAMES } from '../../../assets/copy/About.js'
+
 import addTextNode from '../../utils/addTextNode.js'
 import handleTogglePane from '../../utils/handleTogglePane.js'
 
@@ -20,12 +21,15 @@ export default function bioPane() {
 
 		const closeBioPaneButton = document.createElement('button')
 		closeBioPaneButton.classList.add('close-bio-pane')
-		closeBioPaneButton.setAttribute('area-controls', buttonControlTargetId) // targets ID
+		closeBioPaneButton.setAttribute('area-controls', buttonControlTargetId) // targets html ID
 		closeBioPaneButton.setAttribute('area-expanded', true)
 		addTextNode(closeBioPaneButton, 'close')
 		closeBioPaneButton.addEventListener('click', () =>
-			handleTogglePane(buttonControlTargetId, closeBioPaneButton, false)
+			handleTogglePane(buttonControlTargetId, closeBioPaneButton, {
+				isExpanded: false,
+			})
 		)
+
 		bioContainer.appendChild(closeBioPaneButton)
 
 		const personName = document.createElement('h2')
@@ -38,18 +42,16 @@ export default function bioPane() {
 		addTextNode(personBio, bio)
 		bioContainer.appendChild(personBio)
 
-		const anchorContainer = document.createElement('p')
-		anchorContainer.classList.add('pane-bio-anchor-container')
-
 		const personWebsiteAnchor = document.createElement('a')
+		personWebsiteAnchor.classList.add('pane-bio-anchor')
 		personWebsiteAnchor.setAttribute('href', `${website}`)
 		personWebsiteAnchor.setAttribute('target', '_blank')
 		addTextNode(
 			personWebsiteAnchor,
 			`Visit ${fullName.split(' ')[0]}'s website`
 		)
-		anchorContainer.appendChild(personWebsiteAnchor)
-		bioContainer.appendChild(anchorContainer)
+
+		bioContainer.appendChild(personWebsiteAnchor)
 
 		const personImageContainer = document.createElement('div')
 		personImageContainer.classList.add('pane-bio-image-container')
@@ -59,8 +61,6 @@ export default function bioPane() {
 		personImage.classList.add('pane-bio-image-lg')
 		personImage.setAttribute('src', photo)
 		personImageContainer.appendChild(personImage)
-
-		// personImage.style.cssText = `background-image: url(${photo})`
 
 		bioPane.appendChild(bioContainer)
 		bioPane.appendChild(personImageContainer)

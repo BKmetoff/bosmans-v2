@@ -1,4 +1,5 @@
-import { MAP_NAMES_TO_BIO, NAMES } from '../../../assets/copy/About/People.js'
+import { MAP_NAMES_TO_BIO, NAMES } from '../../../assets/copy/About.js'
+
 import addTextNode from '../../utils/addTextNode.js'
 import handleTogglePane from '../../utils/handleTogglePane.js'
 
@@ -13,25 +14,27 @@ export default function about() {
 			.split(' ')[0]
 			.toLowerCase()}`
 
-		const openBioPaneButton = document.createElement('button')
-		openBioPaneButton.classList.add('open-bio-pane')
-		openBioPaneButton.setAttribute('area-controls', buttonControlTargetId) // targets html id
-		openBioPaneButton.setAttribute('area-expanded', 'false')
-		openBioPaneButton.addEventListener('click', () =>
-			handleTogglePane(buttonControlTargetId, openBioPaneButton, true)
+		const bioCard = document.createElement('button')
+		bioCard.classList.add('bio-card')
+		bioCard.setAttribute('area-controls', buttonControlTargetId) // targets html id
+		bioCard.setAttribute('area-expanded', 'false')
+		bioCard.addEventListener('click', () =>
+			handleTogglePane(buttonControlTargetId, bioCard, {
+				isExpanded: true,
+			})
 		)
 
 		const personName = document.createElement('p')
 		personName.classList.add('bio-name')
 		addTextNode(personName, fullName)
-		openBioPaneButton.appendChild(personName)
+		bioCard.appendChild(personName)
 
 		const bioImage = document.createElement('img')
 		bioImage.classList.add('bio-image-sm')
 		bioImage.setAttribute('src', photo)
-		openBioPaneButton.appendChild(bioImage)
+		bioCard.appendChild(bioImage)
 
-		sectionContent.appendChild(openBioPaneButton)
+		sectionContent.appendChild(bioCard)
 		aboutSection.appendChild(sectionContent)
 	})
 }

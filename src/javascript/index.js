@@ -9,10 +9,10 @@ import contact from './populateDom/sectionContact.js'
 import about from './populateDom/sectionAbout/sectionAbout.js'
 import bioPane from './populateDom/sectionAbout/bioPane.js'
 
-import addSectionDataIndex from './utils/addSectionDataIndex.js'
-
 function app() {
-	navigationOpenClose()
+	navigationOpenClose() // refactor!
+
+	// populate DOM
 	navLinks()
 	missionAndPatron()
 	repertoire()
@@ -20,8 +20,6 @@ function app() {
 	contact()
 	about()
 	bioPane()
-
-	addSectionDataIndex() // refactor!
 }
 
 app()

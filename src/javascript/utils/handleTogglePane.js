@@ -1,14 +1,13 @@
 export default function handleTogglePane(
 	controlledElementId,
 	clickedButton,
-	boolean
+	{ isExpanded = false }
 ) {
-	//
-	// update 'area-visible' attribute of controlled element.
-	// update 'area-expanded' attribute of clicked button.
+	// updates 'area-visible' attribute of controlled element.
+	// updates 'area-expanded' attribute of clicked button.
 
 	const pane = document.querySelector(`#${controlledElementId}`)
-	pane.setAttribute('data-visible', boolean)
+	pane.setAttribute('data-visible', isExpanded.valueOf())
 
-	clickedButton.setAttribute('area-expanded', boolean)
+	clickedButton.setAttribute('area-expanded', isExpanded.valueOf())
 }
