@@ -53,7 +53,26 @@
 	border: none;
 	cursor: pointer;
 	margin-bottom: var(--spacing-s);
+	position: relative;
 }
+
+.close-bio-pane:hover::before,
+.close-bio-pane:focus::before {
+	content: '';
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+
+	top: 0;
+	height: 100%;
+	width: 100%;
+
+	background: var(--clr-accent);
+	transform: perspective(4em) scale(1, 0.35);
+	filter: blur(1.5em);
+	opacity: 0.9;
+}
+
 
 .pane-person-name {
 	text-align: right;
@@ -67,6 +86,7 @@
 .pane-bio {
 	text-align: justify;
 	font-size: var(--fs-s);
+	margin-bottom: var(--spacing-l);
 }
 
 .pane-bio-image-container {
@@ -83,27 +103,20 @@
 	height: 100%;
 }
 
-.pane-bio-anchor-container {
-	margin-top: var(--spacing-l);
-	margin-left: auto;
-	text-align: right;
+.pane-bio-anchor {
 	position: relative;
 	color: var(--clr-primary);
-	width: fit-content;
+	text-decoration: none;
 }
 
-.pane-bio-anchor-container:hover,
-.pane-bio-anchor-container:focus {
+.pane-bio-anchor:hover,
+.pane-bio-anchor:focus {
 	color: var(--clr-light);
 }
 
-.pane-bio-anchor-container > a {
-	text-decoration: none;
-	color: inherit;
-}
 
-.pane-bio-anchor-container:hover::before,
-.pane-bio-anchor-container:focus::before {
+.pane-bio-anchor:hover::before,
+.pane-bio-anchor:focus::before {
 	content: '';
 	position: absolute;
 	margin-left: auto;
