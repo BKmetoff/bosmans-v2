@@ -1,9 +1,7 @@
 name: Push to AWS s3 staging
 on:
-  pull_request_target:
-    types:
-      - opened
-    branches:
+  push:
+    branches-ignore:
       - 'master'
 
 jobs:
