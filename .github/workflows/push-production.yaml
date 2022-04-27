@@ -24,7 +24,7 @@ jobs:
       - name: AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::936892409162:role/gh-actions-bosmans-and-beyond
+          role-to-assume: ${{ secrets.ASSUME_ROLE_ARN_PRODUCTION }}
           aws-region: eu-west-1
 
       - name: Copy files using script
