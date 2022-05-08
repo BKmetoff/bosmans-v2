@@ -22,8 +22,19 @@ jobs:
           role-to-assume: ${{ secrets.ASSUME_ROLE_ARN_STAGING }}
           aws-region: eu-west-1
 
-      - name: Copy files using script
+      # - name: Copy files using script
+      #   env:
+      #     BUCKET_STAGING: ${{ secrets.BUCKET_STAGING }}
+      #     WORKSPACE: ${{ github.workspace }}
+      #   run: ./bin/upload
+      
+      - name: Post S3 website URL as a comment
         env:
           BUCKET_STAGING: ${{ secrets.BUCKET_STAGING }}
-          WORKSPACE: ${{ github.workspace }}
-        run: ./bin/upload
+        run: |
+          curl \
+            -X POST \
+            ${{ github.event.issue.comments_url }} \
+            -H "Content-Type: application/json" \
+            -H "Authorization: token $GITHUB_TOKEN" \
+            --data '{ "body": "Content uploaded!\nURL: http://${{ secrets.BUCKET_STAGING }}/.s3-website-eu-west-1.amazonaws.com/" }'
