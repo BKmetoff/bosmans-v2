@@ -34,7 +34,7 @@ jobs:
         run: |      
           curl \
             -X POST \
-            https://api.github.com/repos/${{ github.repository }}/issues/comments' \
+            https://api.github.com/repos/${{ github.repository }}/issues/comments \
             -H "Content-Type: application/json charset=utf-8" \
             -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             --data '{ "body": "test test" }'
