@@ -31,7 +31,7 @@ jobs:
       - name: Post S3 website URL as a comment
         env:
           BUCKET_STAGING: ${{ secrets.BUCKET_STAGING }}
-      - uses: actions/github-script@v5
+        uses: actions/github-script@v5
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
