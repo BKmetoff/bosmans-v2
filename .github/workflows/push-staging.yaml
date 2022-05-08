@@ -5,7 +5,7 @@ on:
       - 'master'
 
 jobs:
-  push-to-s3-staging:
+  push-to-s3-dev:
     runs-on: ubuntu-latest
 
     permissions:
@@ -22,12 +22,12 @@ jobs:
           role-to-assume: ${{ secrets.ASSUME_ROLE_ARN_STAGING }}
           aws-region: eu-west-1
 
-     # - name: Copy files using script
-     #   env:
-     #    BUCKET_STAGING: ${{ secrets.BUCKET_STAGING }}
-     #    WORKSPACE: ${{ github.workspace }}
-     #   run: ./bin/upload
-      
+      - name: Copy files using script
+        env:
+          BUCKET_STAGING: ${{ secrets.BUCKET_STAGING }}
+          WORKSPACE: ${{ github.workspace }}
+        run: ./bin/upload
+        
       - name: Create commit comment
         uses: peter-evans/commit-comment@v1
         with:
