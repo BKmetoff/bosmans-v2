@@ -11,8 +11,14 @@
 @import url('./components/section-repertoire.css');
 @import url('./components/section-social.css');
 @import url('./components/section-contact.css');
+
 @import url('./components/section-about.css');
 @import url('./components/bio-pane.css');
+
+@import url('./components/section-video.css');
+@import url('./components/video-pane.css');
+
+
 
 @font-face {
 	font-family: 'Dosis-Regular';
