@@ -31,10 +31,8 @@ jobs:
       - name: Post S3 website URL as a comment
         env:
           BUCKET_STAGING: ${{ secrets.BUCKET_STAGING }}
-        run: |      
-          curl \
-            -X POST \
-            https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.issue.number }}/comments \
-            -H "Content-Type: application/json charset=utf-8" \
-            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            --data '{ "body": "test test" }'
+        uses: mshick/add-pr-comment@v1
+        with:
+          message: |
+            **test test**
+          allow-repeats: true
