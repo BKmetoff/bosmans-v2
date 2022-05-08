@@ -1,0 +1,35 @@
+@import url('../constants.css');
+
+.video > .section-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.video-card {
+	background: var(--clr-transparent);
+	cursor: pointer;
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: center;
+	width: 80%;
+	padding-top: var(--spacing-m);
+	padding-bottom: var(--spacing-m);
+  border-left: 1px solid var(--clr-accent);
+	margin-top: var(--spacing-s);
+	margin-bottom: var(--spacing-s);
+	transition: all var(--transition-short);
+}
+
+.video-card:hover,
+.video-card:focus {
+	position: relative;
+	box-shadow: var(--clr-transparent-dark) 0px 5px 15px;
+	background: var(--clr-transparent-dark);
+	top: -2px;
+}
+
+.video-card > .video-author {
+  font-size: var(--fs-xl);
+  position: relative;
+}
