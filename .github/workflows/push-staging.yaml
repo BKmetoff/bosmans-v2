@@ -31,6 +31,7 @@ jobs:
       - name: Create commit comment
         uses: peter-evans/commit-comment@v1
         with:
+          token: ${{ secrets.GH_ACTIONS_PAT }}
           repository: ${{ github.repository }}
           sha: ${{ github.event.pull_request.head.sha }}
           body: |
