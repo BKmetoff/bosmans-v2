@@ -28,12 +28,13 @@ jobs:
       #     WORKSPACE: ${{ github.workspace }}
       #   run: ./bin/upload
       
-      - name: Post S3 website URL as a comment
-        env:
-          BUCKET_STAGING: ${{ secrets.BUCKET_STAGING }}
-        uses: mshick/add-pr-comment@v1
+      - name: Create commit comment
+        uses: peter-evans/commit-comment@v1
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          message: |
-            **test test**
-          allow-repeats: true
+          token: ${{ secrets.BUCKET_STAGING }}
+          repository: ${{ github.repository }}
+          sha: ${{ github.event.pull_request.head.sha }}
+          body: |
+            This is a multi-line test comment
+            - With GitHub **Markdown**
+            - test test
