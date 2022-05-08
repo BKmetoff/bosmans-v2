@@ -31,6 +31,7 @@ jobs:
       - name: Post S3 website URL as a comment
         env:
           BUCKET_STAGING: ${{ secrets.BUCKET_STAGING }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         uses: mshick/add-pr-comment@v1
         with:
           message: |
