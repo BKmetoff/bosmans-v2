@@ -5,7 +5,7 @@ on:
       - 'master'
 
 jobs:
-  push-to-s3-staging:
+  push-to-s3-dev:
     runs-on: ubuntu-latest
 
     permissions:
@@ -27,3 +27,12 @@ jobs:
           BUCKET_STAGING: ${{ secrets.BUCKET_STAGING }}
           WORKSPACE: ${{ github.workspace }}
         run: ./bin/upload
+        
+      - name: Create comment with dev website URL
+        uses: peter-evans/commit-comment@v1
+        with:
+          token: ${{ secrets.GH_ACTIONS_PAT }}
+          repository: ${{ github.repository }}
+          sha: ${{ github.event.pull_request.head.sha }}
+          body: |
+            Upload to [dev](http://bosmans-and-beyond-staging.s3-website-eu-west-1.amazonaws.com) completed.

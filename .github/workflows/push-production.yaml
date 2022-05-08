@@ -32,3 +32,12 @@ jobs:
           BUCKET_PRODUCTION: ${{ secrets.BUCKET_PRODUCTION }}
           WORKSPACE: ${{ github.workspace }}
         run: ./bin/upload
+      
+      - name: Create comment with prod website URL
+        uses: peter-evans/commit-comment@v1
+        with:
+          token: ${{ secrets.GH_ACTIONS_PAT }}
+          repository: ${{ github.repository }}
+          sha: ${{ github.event.pull_request.head.sha }}
+          body: |
+            Upload to [prod](http://bosmans-and-beyond.s3-website-eu-west-1.amazonaws.com) completed.
