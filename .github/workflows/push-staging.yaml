@@ -31,13 +31,10 @@ jobs:
       - name: Post S3 website URL as a comment
         env:
           BUCKET_STAGING: ${{ secrets.BUCKET_STAGING }}
-        uses: actions/github-script@v5
-        with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: 'test, test'
-            })
+        run: |
+          curl \
+            -X POST \
+            https://api.github.com/repos/${{context.repo.owner}}/${{context.repo.repo}}/issues/comments' \
+            -H "Content-Type: application/json charset=utf-8" \
+            -H "Authorization: token $GITHUB_TOKEN" \
+            --data '{ "body": "test test" }'
