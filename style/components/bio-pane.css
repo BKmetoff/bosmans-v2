@@ -1,7 +1,7 @@
 @import url('../constants.css');
 
 .bio-pane {
-	max-width: 1024px;
+	max-width: var(--fixed-max-width);
 	aspect-ratio: 16/10;
 
 	top: 0;

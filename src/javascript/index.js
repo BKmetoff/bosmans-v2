@@ -4,7 +4,6 @@ import navLinks from './populateDom/navLinks.js'
 import missionAndPatron from './populateDom/sectionMissionAndPatron.js'
 import repertoire from './populateDom/sectionRepertoire.js'
 import social from './populateDom/sectionSocial.js'
-import contact from './populateDom/sectionContact.js'
 
 import video from './populateDom/sectionVideo/sectionVideo.js'
 import videoPane from './populateDom/sectionVideo/videoPane.js'
@@ -20,7 +19,6 @@ function app() {
 	missionAndPatron()
 	repertoire()
 	social()
-	contact()
 
 	about()
 	bioPane()

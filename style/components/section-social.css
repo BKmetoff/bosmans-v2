@@ -1,41 +1,87 @@
 @import url('../constants.css');
 
-.social-media-container {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+.social > .section-content{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
 	align-items: center;
-	gap: var(--spacing-m);
-	margin: var(--spacing-s) 0 var(--spacing-s) 0;
 }
 
-.social-media-logo {
-	grid-column: 1/2;
-	grid-row: 1;
-	justify-self: right;
-	width: 55px;
-	aspect-ratio: 1;
+.social-media-wrapper,
+.contact-copy {
+	width: 45%;
 }
 
-.social-media-profile {
-	grid-column: 2/2;
-	grid-row: 1;
-	color: var(--clr-light);
-	font-size: var(--fs-l);
-	text-decoration: none;
-	justify-self: left;
+.social-media-card {
+	margin-left: var(--spacing-xl);
+	margin-top: var(--spacing-xs);
+	margin-bottom: var(--spacing-s);
+	max-width: 80%;
+	align-items: center;
+	align-self: center;
 	position: relative;
 }
 
-.social-media-profile:hover::before,
-.social-media-profile:focus::before {
+.social-media-card:hover::before,
+.social-media-card:focus::before {
+	content: '';
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+
+	top: 40%;
+	left: 30%;
+	height: 40%;
+	width: 40%;
+
+	background: var(--clr-accent);
+	transform: perspective(4em) scale(1, 0.35);
+	filter: blur(1.5em);
+	opacity: 0.9;
+}
+
+.social-media-card > a {
+	color: var(--clr-light);
+	font-size: var(--fs-l);
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	width: 100%;
+}
+
+
+.social-media-logo {
+	width: 55px;
+	aspect-ratio: 1;
+	margin-right: var(--spacing-s);
+}
+
+.social-media-profile {
+	margin-left: var(--spacing-s);
+}
+
+.contact-mail-to {
+	color: var(--clr-accent);
+	text-decoration: none;
+	position: relative;
+}
+
+.contact-mail-to:hover,
+.contact-mail-to:focus {
+	color: var(--clr-light);
+}
+
+.contact-mail-to:hover::after,
+.contact-mail-to:focus::after {
 	content: '';
 	position: absolute;
 	margin-left: auto;
 	margin-right: auto;
 
 	top: 0;
-	height: 130%;
-	width: 100%;
+	left: 0;
+	height: 100%;
+	width: 80%;
 
 	background: var(--clr-accent);
 	transform: perspective(4em) scale(1, 0.35);

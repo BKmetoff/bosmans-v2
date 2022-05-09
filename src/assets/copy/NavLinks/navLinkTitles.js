@@ -5,6 +5,5 @@ export const navLinkTitles = [
 	'about',
 	'video',
 	'repertoire',
-	'contact',
 	'social',
 ]
