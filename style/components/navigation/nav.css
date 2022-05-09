@@ -41,8 +41,8 @@
 }
 
 .nav-logo {
-	margin-top: var(--spacing-xxl);
-	width: 120px;
+	margin-top: var(--spacing-xl);
+	width: 130px;
 	aspect-ratio: 1;
 }
 
