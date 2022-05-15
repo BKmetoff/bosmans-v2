@@ -1,13 +1,14 @@
 @import url('constants.css');
 
 .piece-details {
-	text-align: end;
+	text-align: center;
 	margin-bottom: var(--spacing-s);
 }
 
 .piece-type {
 	font-style: italic;
 	font-size: var(--fs-s);
+	text-align: center;
 }
 
 .composer-container {

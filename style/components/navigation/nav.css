@@ -7,7 +7,7 @@
 	justify-content: space-between;
 	align-items: center;
 
-	grid-column: 3 / 3;
+	grid-column: 6 / 8;
 	grid-row: 1;
 
 	transform: translateX(100%);
@@ -40,9 +40,9 @@
 	color: var(--clr-light);
 }
 
-.nav-logo {
+.nav-logo > img {
 	margin-top: var(--spacing-xl);
-	width: 100px;
+	width: 130px;
 	aspect-ratio: 1;
 }
 
@@ -53,17 +53,10 @@
 	}
 }
 
-/* .nav-links {
-	position: relative;
-} */
 
 .scroll-background {
-	/* position: fixed; */
-	/* text-align: center; */
 	padding: 2rem;
 	background: var(--clr-accent);
 	width: 40%;
-	/* transform: perspective(4em) scale(1, 0.35); */
-	/* filter: blur(1.5em); */
 	opacity: 0.9;
 }
