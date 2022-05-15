@@ -1,0 +1,26 @@
+{
+  "contact": {
+    "paragraphStart": "'We are currently looking for music in archives, preparing scores and making beautiful programs.\nIf you would like to hire us for a concert, don’t hesitate to '\n",
+    "mailTo": "reach us via email",
+    "paragraphEnd": " or via social media.",
+    "emailAddress": "bosmansbeyond@gmail.com"
+  },
+  "social_media": {
+    "facebook": {
+      "profile": "/BosmansBeyond",
+      "url": "https://www.facebook.com/BosmansBeyond/",
+      "logo": "src/assets/icons/facebook.svg"
+    },
+    "instagram": {
+      "profile": "/bosmansbeyond",
+      "url": "https://www.instagram.com/bosmansbeyond/",
+      "logo": "src/assets/icons/instagram.svg"
+    },
+    "youtube": {
+      "profile": "Bosmans & Beyond",
+      "url": "https://www.youtube.com/channel/UCDmtuNR6rWMsMwmSh8kSfHg",
+      "logo": "src/assets/icons/youtube.svg"
+    }
+  }
+}
+

@@ -1,96 +1,61 @@
 import addTextNode from '../../utils/addTextNode.js'
 import handleTogglePane from '../../utils/handleTogglePane.js'
+import addAttributes from '../../utils/addAttributes.js'
+import addNewElement from '../../utils/addNewElement.js'
 
-import {
-	MAP_TITLE_TO_VIDEO,
-	VIDEO_TITLES,
-} from '../../../assets/copy/Videos.js'
+import videoCopy from '/src/assets/copy/video.json' assert { type: 'json' }
+
+function performerSection(performer) {
+	const { name, instrument } = performer
+
+	const piecePerformer = document.createElement('div')
+	piecePerformer.classList.add('performer')
+
+	addNewElement(name, 'performer-name', 'p', piecePerformer)
+	addNewElement(instrument, 'performer-instrument', 'p', piecePerformer)
+
+	return piecePerformer
+}
 
 export default function videoPane() {
-	const container = document.querySelector('.container')
+	const videoPanes = document.querySelectorAll('.video-pane')
+	const videoContainers = document.querySelectorAll('.video-pane-container')
+	const closePaneButtons = document.querySelectorAll('.close-video-pane')
 
-	Object.values(VIDEO_TITLES).map((video) => {
-		const { title, url, author, musicians } = MAP_TITLE_TO_VIDEO[video]
+	const videoTitles = document.querySelectorAll('.piece-title')
+	const videoAuthors = document.querySelectorAll('.piece-author')
 
-		const buttonControlTargetId = `video-pane-${title
-			.split(' ')[0]
-			.replace(',', '')
-			.toLowerCase()}`
+	const performersWrappers = document.querySelectorAll('.performers-wrapper')
 
-		const videoPane = document.createElement('div')
-		videoPane.classList.add('video-pane')
-		videoPane.id = buttonControlTargetId
+	videoCopy.map((video, index) => {
+		const { title, url, author, musicians } = video
 
-		const videoContainer = document.createElement('div')
-		videoContainer.classList.add('pane-video-container')
-
-		const closeVideoPaneButton = document.createElement('button')
-		closeVideoPaneButton.classList.add('close-video-pane')
-		closeVideoPaneButton.setAttribute('area-controls', buttonControlTargetId) // targets html ID
-		closeVideoPaneButton.setAttribute('area-expanded', true)
-		addTextNode(closeVideoPaneButton, 'close')
-		closeVideoPaneButton.addEventListener('click', () =>
-			handleTogglePane(buttonControlTargetId, closeVideoPaneButton, {
+		closePaneButtons[index].addEventListener('click', () => {
+			handleTogglePane(videoPanes[index].id, closePaneButtons[index], {
 				isExpanded: false,
 			})
-		)
-		videoContainer.appendChild(closeVideoPaneButton)
-
-		const pieceDetailsWrapper = document.createElement('div')
-		pieceDetailsWrapper.classList.add('piece-details-wrapper')
-
-		const videoTitle = document.createElement('h2')
-		videoTitle.classList.add('video-title')
-		addTextNode(videoTitle, title)
-		pieceDetailsWrapper.appendChild(videoTitle)
-
-		const pieceAuthor = document.createElement('p')
-		pieceAuthor.classList.add('video-piece-author')
-		addTextNode(pieceAuthor, author)
-		pieceDetailsWrapper.appendChild(pieceAuthor)
-
-		videoContainer.appendChild(pieceDetailsWrapper)
-
-		const performersWrapper = document.createElement('div')
-		performersWrapper.classList.add('performers-wrapper')
-
-		videoContainer.appendChild(performersWrapper)
-
-		musicians.map((performer) => {
-			const piecePerformer = document.createElement('div')
-			piecePerformer.classList.add('performer')
-
-			const piecePerformerName = document.createElement('p')
-			piecePerformerName.classList.add('performer-name')
-			addTextNode(piecePerformerName, performer.name)
-			piecePerformer.appendChild(piecePerformerName)
-
-			const piecePerformerInstrument = document.createElement('p')
-			piecePerformerInstrument.classList.add('performer-instrument')
-			addTextNode(piecePerformerInstrument, performer.instrument)
-			piecePerformer.appendChild(piecePerformerInstrument)
-
-			performersWrapper.appendChild(piecePerformer)
 		})
 
-		const copyWrapper = document.createElement('div')
-		copyWrapper.classList.add('copy-wrapper')
-		copyWrapper.appendChild(pieceDetailsWrapper)
-		copyWrapper.appendChild(performersWrapper)
+		addTextNode(videoTitles[index], title)
+		addTextNode(videoAuthors[index], author)
+
+		musicians.map((performer) => {
+			performersWrappers[index].appendChild(performerSection(performer))
+		})
 
 		const videoPlayer = document.createElement('iframe')
 		videoPlayer.classList.add('video-player')
-		videoPlayer.setAttribute('src', url)
-		videoPlayer.setAttribute('height', '315')
-		videoPlayer.setAttribute('width', '420')
-		videoPlayer.setAttribute('title', title)
-		videoPlayer.setAttribute('frameborder', '0')
-		videoPlayer.setAttribute('allowfullscreen', 'true')
-		videoPlayer.setAttribute('allow', 'encrypted-media')
 
-		videoContainer.appendChild(copyWrapper)
-		videoContainer.appendChild(videoPlayer)
-		videoPane.appendChild(videoContainer)
-		container.appendChild(videoPane)
+		addAttributes(videoPlayer, {
+			src: url,
+			height: '315',
+			width: '420',
+			title: title,
+			frameborder: '0',
+			allowfullscreen: 'true',
+			allow: 'encrypted-media',
+		})
+
+		videoContainers[index].appendChild(videoPlayer)
 	})
 }

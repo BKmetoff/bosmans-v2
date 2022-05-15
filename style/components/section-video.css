@@ -10,7 +10,7 @@
 	background: var(--clr-transparent);
 	cursor: pointer;
 	display: flex;
-	flex-direction: column-reverse;
+	flex-direction: column;
 	align-items: center;
 	width: 80%;
 	padding-top: var(--spacing-m);
@@ -32,4 +32,15 @@
 .video-card > .video-author {
   font-size: var(--fs-xl);
   position: relative;
+  margin-bottom: var(--spacing-xs);
+}
+
+.video-card > .video-title {
+  font-size: var(--fs-l);
+  margin-bottom: 0px;
+}
+
+.video-card > .video-title::after {
+  all: unset;
+  margin-bottom: var(--spacing-s);
 }
