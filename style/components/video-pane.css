@@ -34,7 +34,7 @@
 	}
 }
 
-.pane-video-container {
+.video-pane-container {
 	display: flex;
 	flex-direction: row;
 	padding: var(--spacing-l);
@@ -84,16 +84,16 @@
 	text-align: center;
 }
 
-.piece-details-wrapper > .video-title {
+.piece-details-wrapper > .piece-title {
 	margin-bottom: var(--spacing-s);
 	font-size: var(--fs-xl);
 }
 
-.video-piece-author {
+.piece-author {
 	font-size: var(--fs-l);
 }
 
-.video-title::after {
+.piece-title::after {
 	left: 15%;
 	width: 75%;
 }

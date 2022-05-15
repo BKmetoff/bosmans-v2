@@ -1,0 +1,43 @@
+[
+   {
+      "author":"Henriëtte Bosmans",
+      "title":"Lead, kindly light",
+      "url":"https://www.youtube.com/embed/AVB2cjtmAKE",
+      "musicians":[
+         {
+            "name":"Elizaveta Agrafenina",
+            "instrument":"soprano"
+         },
+         {
+            "name":"Satomi Chihara",
+            "instrument":"piano"
+         }
+      ]
+   },
+   {
+      "author":"Henriëtte Bosmans",
+      "title":"Concertstuk (excerpts)",
+      "url":"https://www.youtube.com/embed/8dT7HavtE1w",
+      "musicians":[
+         {
+            "name":"Natalia Szmydt",
+            "instrument":"violin"
+         },
+         {
+            "name":"Dimitri Malignan",
+            "instrument":"piano"
+         }
+      ]
+   },
+   {
+      "author":"Elisabeth Kuyper",
+      "title":"Serenata Ticinese",
+      "url":"https://www.youtube.com/embed/wGBuyjSqF5s",
+      "musicians":[
+         {
+            "name":"Satomi Chihara",
+            "instrument":"piano"
+         }
+      ]
+   }
+]
